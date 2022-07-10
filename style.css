@@ -23,6 +23,8 @@ textarea {
 
 .description {
   white-space: pre-wrap;
+  /*Extending the description field so it is wider*/
+  width: 90%
 }
 
 .time-block {

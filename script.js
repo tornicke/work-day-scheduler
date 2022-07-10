@@ -2,6 +2,9 @@
 
 // Color code based on current time
 
+//Current time
+
+
 // Loop over time slots - each loop should compare current time with time slot
 // based on that add classes
 // time slot < current hour - past class to text area
@@ -14,7 +17,6 @@
 // Loop to show the user input for each time slot
 for (let index = 9; index <= 17; index++) {
     $(".user-input-" + index).val(localStorage.getItem(index))
-    
 }
 
 
@@ -26,9 +28,10 @@ for (let index = 9; index <= 17; index++) {
 $(".submitBtn").on("click", function () {
     // Save user input to local storage
     // Search for the textarea element & grab the value
-    // $(this) is similar to current target where event was triggered
+    // $(this) = similar to current target where event was triggered
     var text = $(this).siblings(".description").val();
     // Save it to localStorage corresponding to the time
     var time = $(this).siblings(".time-slot").attr("id");
     localStorage.setItem(time, text);
 })
+
