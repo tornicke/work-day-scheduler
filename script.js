@@ -10,7 +10,7 @@ $("#currentDay").text(CurrentDate)
 
 //"currentTime" is the actual current time for the user when they are visiting the website
 let currentTime = moment().format("h"); 
-var currentTimeElement = document.getElementById("textarea")
+var currentTimeElement = document.getElementById("currentTime");
 
 //Setting the grey color for the "past" time
 if (currentTimeElement < currentTime) {
@@ -18,7 +18,7 @@ if (currentTimeElement < currentTime) {
 }
 
 //Setting the red color for the "present" time
-if (currentTimeElement == currentTime) {
+if (currentTimeElement === currentTime) {
     $("textarea").addClass("present")
 }
 
@@ -26,6 +26,10 @@ if (currentTimeElement == currentTime) {
 if (currentTimeElement > currentTime) {
     $("textarea").addClass("future")
 }
+
+//if (currentTime === 9) {
+
+//}
 
 // Loop over time slots - each loop should compare current time with time slot
 // based on that add classes
@@ -43,7 +47,6 @@ for (let index = 9; index <= 17; index++) {
 
 
 // Allow user to save/update text
-
 // Button - on click of that button - save user input to local storage
 // 1 event listener that will be shared by all buttons
 $(".submitBtn").on("click", function () {

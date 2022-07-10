@@ -45,6 +45,9 @@ textarea {
   color: #000000;
   border-top: 1px dashed #000000;
   align-items: center;
+  justify-content: center;
+  padding: 5px;
+  text-align: center;
 }
 
 .past {
