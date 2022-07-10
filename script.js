@@ -3,12 +3,14 @@
 // Color code based on current time
 
 //Current time
+// Editing the default moment.js function so we only keep the day, month and the date, like shown on the mock-up
+let CurrentDate = moment().format("dddd, MMMM Do");
+$("#currentDay").text(CurrentDate)
 
-// const currentTime = $("#currentTime");
-var currentDate = moment().format();
-
-$("#currentTime").text(currentDate)
-
+//Current time gets updated 
+//var now = setInternal(function()) {
+    //CurrentDate -= 1000;
+//}
 
 // Loop over time slots - each loop should compare current time with time slot
 // based on that add classes
