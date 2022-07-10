@@ -4,13 +4,28 @@
 
 //Current time
 // Editing the default moment.js function so we only keep the day, month and the date, like shown on the mock-up
+//"CurrentDate" is what is displayed on the website header (Day, month, date)
 let CurrentDate = moment().format("dddd, MMMM Do");
 $("#currentDay").text(CurrentDate)
 
-//Current time gets updated 
-//var now = setInternal(function()) {
-    //CurrentDate -= 1000;
-//}
+//"currentTime" is the actual current time for the user when they are visiting the website
+let currentTime = moment().format("h"); 
+var currentTimeElement = document.getElementById("textarea")
+
+//Setting the grey color for the "past" time
+if (currentTimeElement < currentTime) {
+    $("textarea").addClass("past")
+}
+
+//Setting the red color for the "present" time
+if (currentTimeElement == currentTime) {
+    $("textarea").addClass("present")
+}
+
+//Setting the green color for the "future" time
+if (currentTimeElement > currentTime) {
+    $("textarea").addClass("future")
+}
 
 // Loop over time slots - each loop should compare current time with time slot
 // based on that add classes
@@ -25,7 +40,6 @@ $("#currentDay").text(CurrentDate)
 for (let index = 9; index <= 17; index++) {
     $(".user-input-" + index).val(localStorage.getItem(index))
 }
-
 
 
 // Allow user to save/update text
