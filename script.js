@@ -4,6 +4,11 @@
 
 //Current time
 
+// const currentTime = $("#currentTime");
+var currentDate = moment().format();
+
+$("#currentTime").text(currentDate)
+
 
 // Loop over time slots - each loop should compare current time with time slot
 // based on that add classes

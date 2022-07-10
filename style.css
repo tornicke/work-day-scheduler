@@ -1,5 +1,6 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  /*Adding additional fonts*/
+  font-family: 'Open Sans', 'Trebuchet MS', 'Helvetica', 'Arial', sans-serif;
   font-size: 16px;
   line-height: 1;
 }
@@ -36,12 +37,15 @@ textarea {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
+  outline: thin solid grey; /*ToDo Change after if this does not look good*/
 }
 
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  justify-content: center;
+  align-items: center'
 }
 
 .past {
