@@ -38,7 +38,7 @@ $(".submitBtn").on("click", function () {
     // $(this) = similar to current target where event was triggered
     var text = $(this).siblings(".description").val();
     // Save it to localStorage corresponding to the time
-    var time = $(this).siblings(".time-slot").attr("id");
+    var time = $(this).siblings(".time-block").attr("id");
     localStorage.setItem(time, text);
 })
 
