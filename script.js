@@ -5,38 +5,39 @@
 //Current time
 // Editing the default moment.js function so we only keep the day, month and the date, like shown on the mock-up
 //"CurrentDate" is what is displayed on the website header (Day, month, date)
-let CurrentDate = moment().format("dddd, MMMM Do");
+var CurrentDate = moment().format("dddd, MMMM Do");
 $("#currentDay").text(CurrentDate)
 
-//"currentTime" is the actual current time for the user when they are visiting the website
+//"currentTime" is the actual current time (showing just the hour)
 let currentTime = moment().format("h"); 
-var currentTimeElement = document.getElementById("currentTime");
-
-//Setting the grey color for the "past" time
-if (currentTimeElement < currentTime) {
-    $("textarea").addClass("past")
-}
-
-//Setting the red color for the "present" time
-if (currentTimeElement === currentTime) {
-    $("textarea").addClass("present")
-}
-
-//Setting the green color for the "future" time
-if (currentTimeElement > currentTime) {
-    $("textarea").addClass("future")
-}
-
-//if (currentTime === 9) {
-
-//}
+let currentTimeElement = document.getElementById("currentTime");
 
 // Loop over time slots - each loop should compare current time with time slot
-// based on that add classes
-// time slot < current hour - past class to text area
+// Based on that add classes to reflect the necessary color
+// If time slot < current hour - add tge past class to text area
 // index == current -> present
 // else - future
 
+//Adding the "past" color
+for (let index = 9; index <= 17; index++) {
+    if (index < currentTime) {
+        $("textarea").addClass("past");
+    }
+}
+
+//Adding the "present" color
+for (let index = 9; index <= 17; index++) {
+    if (index === currentTime) {
+        $("textarea").addClass("present");
+    }
+}
+
+//Adding the "future" color
+for (let index = 9; index <= 17; index++) {
+    if (index > currentTime) {
+        $("textarea").addClass("future");
+    }
+}
 
 // Show different text that user has already entered
 // Get the value & display
@@ -55,7 +56,7 @@ $(".submitBtn").on("click", function () {
     // $(this) = similar to current target where event was triggered
     var text = $(this).siblings(".description").val();
     // Save it to localStorage corresponding to the time
-    var time = $(this).siblings(".time-block").attr("id");
+    var time = $(this).siblings(".timeBlock").attr("id");
     localStorage.setItem(time, text);
 })
 
