@@ -8,36 +8,33 @@
 var CurrentDate = moment().format("dddd, MMMM Do");
 $("#currentDay").text(CurrentDate)
 
-//"currentTime" is the actual current time (showing just the hour)
-let currentTime = moment().format("h"); 
-let currentTimeElement = document.getElementById("currentTime");
 
 // Loop over time slots - each loop should compare current time with time slot
 // Based on that add classes to reflect the necessary color
 // If time slot < current hour - add tge past class to text area
-// index == current -> present
-// else - future
+// Time slot == current -> present
+// Else -> future
 
-//Adding the "past" color
-for (let index = 9; index <= 17; index++) {
-    if (index < currentTime) {
-        $("textarea").addClass("past");
-    }
-}
+// currentHour to be compared with the time block hour
+// using H in moment.js so it shows the hour in the 24-hour format
+var currentHour = parseInt(moment().format("H"));
 
-//Adding the "present" color
-for (let index = 9; index <= 17; index++) {
-    if (index === currentTime) {
-        $("textarea").addClass("present");
-    }
-}
+$(".timeBlock").each(function () {
+  var blockHour = parseInt($(this).attr("id"));
 
-//Adding the "future" color
-for (let index = 9; index <= 17; index++) {
-    if (index > currentTime) {
-        $("textarea").addClass("future");
-    }
-}
+  // console.log(blockHour, currentHour); Just for testing purposes, not needed in the actual code
+  // Compare the blockHour with the currentHour to determine the color of the relevant row
+  if (blockHour < currentHour) {
+    $(this).addClass("past");
+  } else if (blockHour === currentHour) {
+    $(this).removeClass("past");
+    $(this).addClass("present");
+  } else {
+    $(this).removeClass("past");
+    $(this).removeClass("present");
+    $(this).addClass("future");
+  }
+});
 
 // Show different text that user has already entered
 // Get the value & display
@@ -56,7 +53,7 @@ $(".submitBtn").on("click", function () {
     // $(this) = similar to current target where event was triggered
     var text = $(this).siblings(".description").val();
     // Save it to localStorage corresponding to the time
-    var time = $(this).siblings(".timeBlock").attr("id");
+    var time = $(this).parents(".timeBlock").attr("id");
     localStorage.setItem(time, text);
 })
 
