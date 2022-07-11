@@ -33,9 +33,9 @@
 
 <h2>Screenshot</h2>
 
-UPDATE THE SCREENSHOT!
+The screenshot was taken at 15:24, therefore the 3PM row is colored in red.
 
-![image](https://github.com/tornicke/web-apis-code-quiz/blob/2ee00741cdeb9a74c4a365d6ffde7148307d13dd/Assets/Screenshot.png) 
+![image](https://github.com/tornicke/work-day-scheduler/blob/main/Assets/screenshot.png) 
 
 <h2>Required URLs:</h2>
 
