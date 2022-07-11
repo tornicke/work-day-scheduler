@@ -1,6 +1,3 @@
-// Define global variables
-
-// Color code based on current time
 
 //Current time
 // Editing the default moment.js function so we only keep the day, month and the date, like shown on the mock-up
